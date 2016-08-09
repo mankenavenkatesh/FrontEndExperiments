@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task Board</title>
+    <!-- Not present in the tutorial. Just for basic styling. -->
+    <script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="react-container"></div>
+     <script type="text/babel" src="js/Note.js"></script>
+<!--
+    <script type="text/babel">
+      var CheckBox=React.createClass({
+        getInitialState:function(){
+          return {
+            checked:false
+          }
+        },
+
+        handleCheck:function(){
+          this.setState({checked:!this.state.checked});
+
+        },
+        render:function(){
+          var msg;
+          if(this.state.checked){
+            msg="checked";
+          }
+          else {
+            msg="unchecked";
+          }
+          return(
+            <div>
+            <input type="checkbox" onChange={this.handleCheck}></input>
+            <p>{msg}</p>
+            </div>
+          )
+        }
+      });
+
+      ReactDOM.render(<CheckBox />, document.getElementById('react-container'));
+
+    </script>
+    -->
+  </body>
+</html>
