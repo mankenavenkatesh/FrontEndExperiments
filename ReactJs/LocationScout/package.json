@@ -16,19 +16,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactjs/react-tutorial.git"
+    "url": "https://github.com/mankenavenkatesh/FrontEndExperiments/tree/master/ReactJs/LocationScout"
   },
   "keywords": [
-    "react",
-    "tutorial",
-    "comment",
-    "example"
+    "LocationScout",
+    "location-scout",
+    "shootinglocations",
+    "Shooting"
   ],
-  "author": "petehunt",
-  "bugs": {
-    "url": "https://github.com/reactjs/react-tutorial/issues"
-  },
-  "homepage": "https://github.com/reactjs/react-tutorial",
+  "author": "venkateshmankena",
+  "homepage": "https://github.com/mankenavenkatesh/FrontEndExperiments/tree/master/ReactJs/LocationScout",
   "engines" : {
     "node" : "0.12.x"
   }
