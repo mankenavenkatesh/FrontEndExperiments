@@ -3,10 +3,12 @@ var Location=React.createClass({
           return(
             <div className="col-md-4">
               <div className="thumbnail">
-              <img src={this.props.image} alt={this.props.title} style={{width:300 , height:200}}/>
-              <p>Category:{this.props.category}</p>
-              <a href={this.props.image}>{this.props.title}</a>
-            </div>
+                <img src={this.props.image} alt={this.props.title} style={{width:300 , height:200}} />
+                <div className="caption">
+                  <p className='pull-right'>Category:{this.props.category}</p>
+                  <h4><a href={this.props.image}>{this.props.title}</a></h4>
+                </div>
+              </div>
             </div>
           )
     }
@@ -71,7 +73,7 @@ var LocationBox=React.createClass({
     return(
       <div>
         <CategoryList categories={this.props.categories}/>
-        
+
         <LocationList locations={this.props.locations}/>
       </div>
     )
