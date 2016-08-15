@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var LOCATIONS_FILE = path.join(__dirname, 'locations.json');
+var CATEGORIES_FILE = path.join(__dirname, 'categories.json');
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -25,12 +26,23 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/locations', function(req, res) {
+  console.log("GET Request for locations");
   fs.readFile(LOCATIONS_FILE, function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);
     }
     res.json(JSON.parse(data));
+  });
+});
+
+app.get('/api/categories',function(request,response){
+  fs.readFile(CATEGORIES_FILE,function(err,data){
+    if(err){
+      console.error(err);
+      process.exit(1);
+    }
+    response.json(JSON.parse(data));
   });
 });
 

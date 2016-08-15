@@ -1,0 +1,21 @@
+[{
+	"id": 1,
+	"title": "Taj-Mahal",
+	"image": "images/taj-mahal.jpg",
+	"category": "mausoleum"
+}, {
+	"id": 2,
+	"title": "Red Fort",
+	"image": "images/red-fort.jpeg",
+	"category": "fort"
+}, {
+	"id": 3,
+	"title": "Taj-Mahal",
+	"image": "images/taj-mahal.jpg",
+	"category": "mausoleum"
+}, {
+	"id": 4,
+	"title": "Red Fort",
+	"image": "images/red-fort.jpeg",
+	"category": "fort"
+}]

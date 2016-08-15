@@ -69,18 +69,54 @@ var LocationFinder=React.createClass({
   }
 });
 var LocationBox=React.createClass({
+  getInitialState:function(){
+    return {locations:[], categories:[]};
+  },
+  loadLocationsFromServer:function(){
+    $.ajax({
+      dataType:'json',
+      url:this.props.locationUrl,
+      cache:false,
+      success:function(locations){
+        this.setState({locations:locations, categories:this.state.categories});
+      }.bind(this),
+      error:function(xhr, status,err){
+        console.error(this.props.locationUrl, status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  loadCategoriesFromServer:function(){
+    $.ajax({
+      url:this.props.categoryUrl,
+      dataType:'json',
+      cache:false,
+      success:function(categories){
+        this.setState({categories:categories, locations:this.state.locations});
+      }.bind(this),
+      error:function(xhr, status,err){
+        console.log(this.props.categoryUrl,status,err.toString());
+      }.bind(this)
+    });
+  },
+  componentDidMount: function() {
+    this.loadLocationsFromServer();
+    this.loadCategoriesFromServer();
+    setInterval(this.loadLocationsFromServer, this.props.pollInterval);
+    setInterval(this.loadCategoriesFromServer, this.props.pollInterval);
+  },
   render:function(){
     return(
       <div>
-        <CategoryList categories={this.props.categories}/>
+        <CategoryList categories={this.state.categories}/>
 
-        <LocationList locations={this.props.locations}/>
+        <LocationList locations={this.state.locations}/>
       </div>
     )
   }
 });
 
-var locations=[{id:1,title:'Taj-Mahal', image:'images/taj-mahal.jpg', category:'mausoleum'},{id:2,title:'Red Fort', image:'images/red-fort.jpeg', category:'fort'},{id:3,title:'Taj-Mahal', image:'images/taj-mahal.jpg', category:'mausoleum'},{id:4,title:'Red Fort', image:'images/red-fort.jpeg', category:'fort'}];
-var categories=[{id:1,name:'All'},{id:2,name:'Fort'},{id:3,name:'Mausoleum'}];
+// var locations=[{id:1,title:'Taj-Mahal', image:'images/taj-mahal.jpg', category:'mausoleum'},{id:2,title:'Red Fort', image:'images/red-fort.jpeg', category:'fort'},{id:3,title:'Taj-Mahal', image:'images/taj-mahal.jpg', category:'mausoleum'},{id:4,title:'Red Fort', image:'images/red-fort.jpeg', category:'fort'}];
+// var categories=[{id:1,name:'All'},{id:2,name:'Fort'},{id:3,name:'Mausoleum'}];
 
-ReactDOM.render(<LocationBox locations={locations} categories={categories} />, document.getElementById('content'));
+ReactDOM.render(<LocationBox locationUrl="/api/locations" pollInterval={2000} categoryUrl="/api/categories"/>, document.getElementById('content'));
