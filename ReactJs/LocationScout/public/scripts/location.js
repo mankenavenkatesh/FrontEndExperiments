@@ -68,9 +68,10 @@ var LocationFinder=React.createClass({
     )
   }
 });
+
 var LocationBox=React.createClass({
   getInitialState:function(){
-    return {locations:[], categories:[]};
+    return {locations:[], categories:[], categoryselected:''};
   },
   loadLocationsFromServer:function(){
     $.ajax({
@@ -78,7 +79,7 @@ var LocationBox=React.createClass({
       url:this.props.locationUrl,
       cache:false,
       success:function(locations){
-        this.setState({locations:locations, categories:this.state.categories});
+        this.setState({locations:locations});
       }.bind(this),
       error:function(xhr, status,err){
         console.error(this.props.locationUrl, status, err.toString());
@@ -92,7 +93,12 @@ var LocationBox=React.createClass({
       dataType:'json',
       cache:false,
       success:function(categories){
-        this.setState({categories:categories, locations:this.state.locations});
+        this.setState({categories:categories});
+        for(var i=0;i<categories.length;i++){
+          if(categories[i].name=="All"){
+            this.setState({categoryselected:categories[i].id});
+          }
+        }
       }.bind(this),
       error:function(xhr, status,err){
         console.log(this.props.categoryUrl,status,err.toString());
@@ -110,7 +116,7 @@ var LocationBox=React.createClass({
       <div>
         <CategoryList categories={this.state.categories}/>
 
-        <LocationList locations={this.state.locations}/>
+        <LocationList locations={this.state.locations} categorySelected={this.state.categorySelected}/>
       </div>
     )
   }
