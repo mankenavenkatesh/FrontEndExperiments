@@ -1,0 +1,33 @@
+{
+  "name": "location-scout",
+  "version": "0.0.0",
+  "private": true,
+  "license": "see LICENSE file",
+  "description": "Web Application To Scout Shooting Locations",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "react-bootstrap": "^0.30.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mankenavenkatesh/FrontEndExperiments/tree/master/ReactJs/LocationScout"
+  },
+  "keywords": [
+    "LocationScout",
+    "location-scout",
+    "shootinglocations",
+    "Shooting"
+  ],
+  "author": "venkateshmankena",
+  "homepage": "https://github.com/mankenavenkatesh/FrontEndExperiments/tree/master/ReactJs/LocationScout",
+  "engines": {
+    "node": "0.12.x"
+  }
+}

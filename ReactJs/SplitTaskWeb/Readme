@@ -1,0 +1,10 @@
+How to start?
+1) Clone the Project
+2) Run npm install
+3) run node server.js
+4)open http://localhost:3000
+
+
+Where is the code?
+1) Front End Code lies in public folder.
+2) server side code is server.js.

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      <label>Name:</label>
+      <input id="name" type="text" placeholder="Enter a name here" onchange="NameChanged()">
+      <hr>
+      <h1>Hello <span id="changedName"></span></h1>
+    </div>
+
+    <script>
+      function NameChanged(){
+        console.log(document.getElementById('name').value);
+        document.getElementById('changedName').innerHTML=document.getElementById('name').value;
+      }
+    </script>
+  </body>
+</html>
